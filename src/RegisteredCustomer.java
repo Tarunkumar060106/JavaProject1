@@ -1,31 +1,42 @@
 public class RegisteredCustomer extends Customer{
-    private double discount;
-    private double fees;
-    private String membershipType;
 
-    public double getDiscount() {
-        return this.discount;
+    private Membership membership;
+
+    // private double discount;
+    // private double fees;
+    // private String membershipType;
+
+    public Membership getMembership(){
+        return this.membership;
     }
 
-    public void setDiscount(double discount) {
-        this.discount = discount;
+    public void setMembership(Membership membership) {
+        this.membership = membership;
     }
 
-    public double getFees() {
-        return this.fees;
-    }
+    // public double getDiscount() {
+    //     return this.discount;
+    // }
 
-    public void setFees(double fees) {
-        this.fees = fees;
-    }
+    // public void setDiscount(double discount) {
+    //     this.discount = discount;
+    // }
 
-    public String getMembershipType() {
-        return this.membershipType;
-    }
+    // public double getFees() {
+    //     return this.fees;
+    // }
 
-    public void setMembershipType(String membershipType) {
-        this.membershipType = membershipType;
-    }
+    // public void setFees(double fees) {
+    //     this.fees = fees;
+    // }
+
+    // public String getMembershipType() {
+    //     return this.membershipType;
+    // }
+
+    // public void setMembershipType(String membershipType) {
+    //     this.membershipType = membershipType;
+    // }
 
     //Functional Methods
     @Override
@@ -36,7 +47,7 @@ public class RegisteredCustomer extends Customer{
                 totalOrderValue += orderItem.getQuantity() * orderItem.getItem().getRate();
             }
         }
-        return totalOrderValue * (1-this.discount/100);
+        return totalOrderValue * (1-this.membership.getDiscount()/100);
     }
 
     @Override
@@ -47,6 +58,6 @@ public class RegisteredCustomer extends Customer{
             totalOrderValue += order.getTotalOrderValue();
         }
 
-        return totalOrderValue * (1 - this.discount / 100);
+        return totalOrderValue * (1 - this.membership.getDiscount() / 100);
     }
 }

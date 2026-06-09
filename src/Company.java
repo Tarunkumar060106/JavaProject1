@@ -51,34 +51,34 @@ public class Company {
 
     //Functional Methods
 
-        public double getTotalOrderValueV1(){
-        double totalOrderValue = 0.0;
+    //     public double getTotalOrderValueV1(){
+    //     double totalOrderValue = 0.0;
        
-        //Write the logic to calculate the total order value of the company
-        //Should take the rate and multiply with the quantity and add to the total order value
-        for(Customer customer: this.customers){
-            for(Order order: customer.getOrders()){
-                for(OrderItem orderItem: order.getOrderItem()){
-                    //We are multiplying the quantity and the rate and adding to the total order value
-                    if(customer instanceof RegisteredCustomer){
-                        RegisteredCustomer registeredCustomer = (RegisteredCustomer) customer;
-                        double discount = registeredCustomer.getDiscount();
-                        totalOrderValue += orderItem.getQuantity() * orderItem.getItem().getRate() * (1 - discount/100);
-                    }
-                    //OCP - Open Closed Principle
-                    //A class should be Open for extension but Closed for modification
-                    //if(customer instanceof PrivilegeCustomer){
-                    //    //Write logic here
-                    //}
-                    //Solved with the help of Run Time Polymorphism - Method Overriding
-                    else
-                        totalOrderValue += orderItem.getQuantity() * orderItem.getItem().getRate();
-                }
-            }
-        }
+    //     //Write the logic to calculate the total order value of the company
+    //     //Should take the rate and multiply with the quantity and add to the total order value
+    //     for(Customer customer: this.customers){
+    //         for(Order order: customer.getOrders()){
+    //             for(OrderItem orderItem: order.getOrderItem()){
+    //                 //We are multiplying the quantity and the rate and adding to the total order value
+    //                 if(customer instanceof RegisteredCustomer){
+    //                     RegisteredCustomer registeredCustomer = (RegisteredCustomer) customer;
+    //                     double discount = registeredCustomer.getMembership().getDiscount();
+    //                     totalOrderValue += orderItem.getQuantity() * orderItem.getItem().getRate() * (1 - discount/100);
+    //                 }
+    //                 //OCP - Open Closed Principle
+    //                 //A class should be Open for extension but Closed for modification
+    //                 //if(customer instanceof PrivilegeCustomer){
+    //                 //    //Write logic here
+    //                 //}
+    //                 //Solved with the help of Run Time Polymorphism - Method Overriding
+    //                 else
+    //                     totalOrderValue += orderItem.getQuantity() * orderItem.getItem().getRate();
+    //             }
+    //         }
+    //     }
         
-        return totalOrderValue;
-    }
+    //     return totalOrderValue;
+    // }
 
     public double getTotalOrderValueV2(){
         double totalOrderValue = 0.0;

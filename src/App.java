@@ -49,9 +49,16 @@ public class App {
         //registered customer -> 10% discount
         var registeredCustomer = new RegisteredCustomer();
         registeredCustomer.setName("Manish");
-        registeredCustomer.setDiscount(20.0);
-        registeredCustomer.setFees(20000.0);
-        registeredCustomer.setMembershipType("Platinum");
+        // registeredCustomer.setDiscount(20.0);
+        // registeredCustomer.setFees(20000.0);
+        // registeredCustomer.setMembershipType("Platinum");
+
+        var membership = new Membership();
+        membership.setMembershipType("Platinum");
+        membership.setDiscount(20.0);
+        membership.setFees(20000.0);
+
+        registeredCustomer.setMembership(membership);
 
         var orderItem3 = new OrderItem(pant, 2);
         var orderItem4 = new OrderItem(shoes, 2);
